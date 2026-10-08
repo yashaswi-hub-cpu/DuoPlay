@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Ink background -->
+    <path
+        android:fillColor="#0D1411"
+        android:pathData="M0,0 h108 v108 h-108 z" />
+
+    <!-- Subtle amber glow circle behind the logo -->
+    <path
+        android:fillColor="#1A2822"
+        android:pathData="M54,54 m-38,0 a38,38 0 1,0 76,0 a38,38 0 1,0 -76,0" />
+</vector>
