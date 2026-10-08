@@ -149,7 +149,7 @@ private fun buildPlayer(ctx: Context, tap: AudioTap): ExoPlayer {
 fun PlayerScreen(
     video: VideoSource,
     store: HistoryStore,
-    engine: CaptionEngine?,
+    engine: CaptionEngine,
     onClose: () -> Unit
 ) {
     val activity = LocalContext.current as ComponentActivity
