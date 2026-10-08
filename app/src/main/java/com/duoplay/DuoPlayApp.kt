@@ -27,7 +27,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.media3.session.MediaController
 import com.duoplay.music.MyMusicRoot
 import com.duoplay.music.SettingsScreen
-import com.duoplay.video.ClassReelRoot
+import com.duoplay.video.ui.ClassReelRoot
 import com.duoplay.video.data.HistoryStore
 import com.duoplay.video.ui.VideoSource
 

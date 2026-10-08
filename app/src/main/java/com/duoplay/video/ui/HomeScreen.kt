@@ -65,7 +65,7 @@ import com.duoplay.video.util.fmtTime
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-private object ThumbCache {
+private object HomeThumbCache {
     private val cache = LruCache<String, Bitmap>(40)
     fun get(k: String): Bitmap? = cache.get(k)
     fun put(k: String, b: Bitmap) {
@@ -360,11 +360,11 @@ private fun HistoryRow(item: HistoryItem, onClick: () -> Unit, onRemove: () -> U
 @Composable
 private fun Thumb(item: HistoryItem, modifier: Modifier) {
     val ctx = LocalContext.current
-    val bmp by produceState<Bitmap?>(initialValue = ThumbCache.get(item.uri), key1 = item.uri) {
+    val bmp by produceState<Bitmap?>(initialValue = HomeThumbCache.get(item.uri), key1 = item.uri) {
         if (value == null) {
             val b = withContext(Dispatchers.IO) { loadFrame(ctx, item) }
             if (b != null) {
-                ThumbCache.put(item.uri, b)
+                HomeThumbCache.put(item.uri, b)
                 value = b
             }
         }

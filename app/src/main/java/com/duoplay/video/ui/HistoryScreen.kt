@@ -60,7 +60,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.Calendar
 
-private object ThumbCache {
+private object HistoryThumbCache {
     private val cache = LruCache<String, Bitmap>(60)
     fun get(k: String): Bitmap? = cache.get(k)
     fun put(k: String, b: Bitmap) {
@@ -313,11 +313,11 @@ private fun HistoryRow(
 @Composable
 private fun Thumb(item: HistoryItem, modifier: Modifier) {
     val ctx = LocalContext.current
-    val bmp by produceState<Bitmap?>(initialValue = ThumbCache.get(item.uri), key1 = item.uri) {
+    val bmp by produceState<Bitmap?>(initialValue = HistoryThumbCache.get(item.uri), key1 = item.uri) {
         if (value == null) {
             val b = withContext(Dispatchers.IO) { loadFrame(ctx, item) }
             if (b != null) {
-                ThumbCache.put(item.uri, b)
+                HistoryThumbCache.put(item.uri, b)
                 value = b
             }
         }
